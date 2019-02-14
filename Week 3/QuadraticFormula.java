@@ -5,12 +5,10 @@
  * Description: Program will calculate the roots of an equation using the quadratic formula and the discriminant. 
  */
 import java.util.Scanner; public class QuadraticFormula {
-
 	
 	public static void main(String[] args) {
 		Scanner scnr = new Scanner(System.in);
 		
-				
 		System.out.println("\t\t Welcome to the Quadratic Calculator 3000. ");
 		System.out.println("This program will calculate the roots of an equation using the quadratic formula and the discriminant.");
 		
