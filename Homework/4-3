@@ -1,0 +1,103 @@
+import java.util.Scanner;
+
+   public class DataConverter { 
+      public static void (String [] args) {
+         Scanner scnr = new Scanner(System.in);
+         
+      int dayNumber;
+      int monthNumber;
+      int date; 
+      int year;
+      string monthName;
+        
+      switch (dayNumber) {
+         case '1':
+            System.out.println("Sunday");
+            break;
+            
+         case '2':
+            System.out.println("Monday");
+            break;
+            
+         case '3':
+            System.out.println("Tuesday");
+            break;
+
+         case '4':
+            System.out.println("Wednesday");
+            break;
+
+         case '5':
+            System.out.println("Thursday");
+            break;
+
+         case '6':
+            System.out.println("Friday");
+            break;
+            
+         case '7':
+            System.out.println("Saturday");
+            break;
+      }
+      
+      switch (monthName) {
+         case '1':
+            System.out.println("January");
+            break;
+            
+         case '2':
+            System.out.println("February");
+            break;
+            
+         case '3':
+            System.out.println("March");
+            break;
+
+         case '4':
+            System.out.println("April");
+            break;
+
+         case '5':
+            System.out.println("May");
+            break;
+
+         case '6':
+            System.out.println("June");
+            break;
+            
+         case '7':
+            System.out.println("July");
+            break;
+    
+        case '8':
+            System.out.println("August");
+            break;
+
+         case '9':
+            System.out.println("September");
+            break;
+
+         case '10':
+            System.out.println("October");
+            break;
+
+         case '11':
+            System.out.println("November");
+            break;
+            
+         case '12':
+            System.out.println("December");
+            break;
+           }
+          
+         if ((dayNumber < 1) || (dayNumber > 7)) {
+          System.out.println("Invalid day number: " dayNumber + ", please enter a number from 1..7.");
+          }
+          else if ((monthNumber < 1) || (monthNumber > 7)) {
+          System.out.println("Invalid day number: " monthNumber + ", please enter a number from 1..12.");
+          }
+          else if ((date < 1) || (dayNumber > 31)) {
+          System.out.println("Invalid day number: " date + ", please enter a number from 1..31.");
+          }
+          
+          if ((date == 31 ) 
