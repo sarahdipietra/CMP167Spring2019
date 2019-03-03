@@ -1,103 +1,105 @@
 import java.util.Scanner;
 
-   public class DataConverter { 
-      public static void (String [] args) {
+   public class DateConverter { 
+      public static void main (String [] args) {
          Scanner scnr = new Scanner(System.in);
          
       int dayNumber;
       int monthNumber;
       int date; 
       int year;
-      string monthName;
-        
+      boolean isLeapYear;
+      
+      System.out.println("Enter 4 integers representing dayNumber monthNumber date year: ");
+      dayNumber = scnr.nextInt();
+      monthNumber = scnr.nextInt();
+      date = scnr.nextInt();
+      year = scnr.nextInt();
+      
+      String dayName = "Sunday";
       switch (dayNumber) {
-         case '1':
-            System.out.println("Sunday");
+         case 1: dayName = "Sunday";
             break;
             
-         case '2':
-            System.out.println("Monday");
+         case 2: dayName = "Monday";
             break;
             
-         case '3':
-            System.out.println("Tuesday");
+         case 3: dayName = "Tuesday";
             break;
 
-         case '4':
-            System.out.println("Wednesday");
+         case 4: dayName = "Wednesday";
             break;
 
-         case '5':
-            System.out.println("Thursday");
+         case 5: dayName = "Thursday";
             break;
 
-         case '6':
-            System.out.println("Friday");
+         case 6: dayName = "Friday";
             break;
             
-         case '7':
-            System.out.println("Saturday");
+         case 7: dayName = "Saturday";
             break;
       }
       
-      switch (monthName) {
-         case '1':
-            System.out.println("January");
+      String monthName = "January";
+      switch (monthNumber) {
+         case 1: monthName = "January";
             break;
             
-         case '2':
-            System.out.println("February");
+         case 2: monthName = "February";
             break;
             
-         case '3':
-            System.out.println("March");
+         case 3: monthName = "March";
             break;
 
-         case '4':
-            System.out.println("April");
+         case 4: monthName = "April";
             break;
 
-         case '5':
-            System.out.println("May");
+         case 5: monthName = "May";
             break;
 
-         case '6':
-            System.out.println("June");
+         case 6: monthName = "June";
             break;
             
-         case '7':
-            System.out.println("July");
+         case 7: monthName = "July";
             break;
     
-        case '8':
-            System.out.println("August");
+        case 8: monthName = "August";
             break;
 
-         case '9':
-            System.out.println("September");
+         case 9: monthName = "September";
             break;
 
-         case '10':
-            System.out.println("October");
+         case 10: monthName = "October";
             break;
 
-         case '11':
-            System.out.println("November");
+         case 11: monthName = "November";
             break;
             
-         case '12':
-            System.out.println("December");
+         case 12: monthName = "December";
             break;
            }
           
          if ((dayNumber < 1) || (dayNumber > 7)) {
-          System.out.println("Invalid day number: " dayNumber + ", please enter a number from 1..7.");
+          System.out.println("Invalid day number: " + dayNumber + ", please enter a number from 1..7.");
           }
           else if ((monthNumber < 1) || (monthNumber > 7)) {
-          System.out.println("Invalid day number: " monthNumber + ", please enter a number from 1..12.");
+          System.out.println("Invalid month number: " + monthNumber + ", please enter a number from 1..12.");
           }
           else if ((date < 1) || (dayNumber > 31)) {
-          System.out.println("Invalid day number: " date + ", please enter a number from 1..31.");
+          System.out.println("Invalid date number: " + date + ", please enter a number from 1..31.");
           }
           
-          if ((date == 31 ) 
+          if ((date == 31)  && ((monthNumber == 2) || (monthNumber == 4) || (monthNumber == 6) || (monthNumber == 9) || (monthNumber == 11))) {
+          System.out.println("Invalid date: " + monthName + ", does not have " + date + "days, Please enter a valid date.");
+          }
+          else if ((date == 30) && (monthNumber == 2)) {
+          System.out.println("Invalid date: " + monthName + ", does not have" + date + " days, please enter a valid date.");
+          
+          isLeapYear = ((year % 4 == 0) && ((year % 100 != 0) || (year % 400 == 0)));
+          if ((!isLeapYear && (date == 29) && (monthNumber == 2))) {
+          System.out.println("Invalid date: " + year + " is not a leap year, February does not have " + date + "days, please enter a valid date.");
+          }
+      System.out.println("dayNumber monthNumber date year is " + dayName + " " + monthName + " " + date + ", " + year);
+      }
+   }
+}
