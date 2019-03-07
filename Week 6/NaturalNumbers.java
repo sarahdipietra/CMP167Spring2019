@@ -1,5 +1,5 @@
 /*
- * File: Loop.java
+ * File: NaturalNumbers.java
  * Author:Sarah DiPietra
  * Created 3.5.2019
  * Description: Program will calculate the sum of the first n natural numbers, where the n is given by the user. 
