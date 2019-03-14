@@ -5,7 +5,7 @@ public class Main {
 	public static void main (String [] args) {
         	@SuppressWarnings("resource")
     		Scanner scnr = new Scanner(System.in);
-        	
+        
        String startOver = "Y";
        while ((startOver.equals("Y") || (startOver.equals("y")))) {
     	   
