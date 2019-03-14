@@ -39,7 +39,6 @@ public class Main {
         }
         
         if (calculatorMode.equals("Scientific") || (calculatorMode.equals("scientific"))) { 
-         System.out.println("The calculator will operate in " + calculatorMode + " mode.");
         	System.out.println("Enter '+' for addition, '-' for subtractions, '*' for multiplication, '/' for division, 'sin' for sin x, 'cos' for cos x, 'tan' for tan x:");
         	Operation = scnr.next();
         		if (Operation.equals("+") && Operation.equals("-") && Operation.equals("*") && Operation.equals("/")) {
@@ -100,9 +99,9 @@ public class Main {
         			 double numOne = scnr.nextDouble();
         		     double numTwo = scnr.nextDouble();
         			numDifference = numOne - numTwo;
-        			for (int i = 1; i <= (numOfNumbers - 3); ++i) {
+        			for (int i = 1; i <= (numOfNumbers - 2); ++i) {
         				numValues = scnr.nextDouble();
-        				numDifference =- numValues;
+        				numDifference = numDifference - numValues;
         				finalResult = numDifference;
         			}
         		}
@@ -137,7 +136,7 @@ public class Main {
         }
         	
         if (Operation.equals("sin") || Operation.equals("cos") || Operation.equals("tan")) {
-        	System.out.println("Enter number in radians to find " + operatorName + ":");
+        	System.out.println("Enter a number in radians to find the " + operatorName);
      
         	if (Operation.equals("sin")) {
         		numValues = scnr.nextDouble();
@@ -162,10 +161,9 @@ public class Main {
         System.out.println("Do you want to start over? (Y/N)");
         startOver = scnr.next();
         if ((startOver.equals("N")  || (startOver.equals("n")))) {
-        	System.out.print("Goodbye");
+        	System.out.println("Goodbye");
         }
         
         }
 	}
 }
-
