@@ -26,8 +26,9 @@ public class Main {
         System.out.println("Enter the calculator mode: Standard/Scientific?");
         calculatorMode = scnr.next();
         
-        if (calculatorMode.equalsIgnoreCase("Standard")|| (calculatorMode.equals("standard"))) { 
-        	System.out.println("Enter '+' for addition, '-' for subtractions, '*' for multiplication, '/' for division:");
+        if (calculatorMode.equals("Standard")|| (calculatorMode.equals("standard"))) { 
+         System.out.println("The calculator will operate in " + calculatorMode + " mode.");
+        	System.out.println("Enter '+' for addition, '-' for subtractions, '*' for multiplication, '/' for division");
         	Operation = scnr.next();
         		if (!Operation.equals("+") && !Operation.equals("-") && !Operation.equals("*") && !Operation.equals("/")) {
         			System.out.println("Invalid operation entered");
@@ -38,6 +39,7 @@ public class Main {
         }
         
         if (calculatorMode.equals("Scientific") || (calculatorMode.equals("scientific"))) { 
+         System.out.println("The calculator will operate in " + calculatorMode + " mode.");
         	System.out.println("Enter '+' for addition, '-' for subtractions, '*' for multiplication, '/' for division, 'sin' for sin x, 'cos' for cos x, 'tan' for tan x:");
         	Operation = scnr.next();
         		if (Operation.equals("+") && Operation.equals("-") && Operation.equals("*") && Operation.equals("/")) {
@@ -75,9 +77,9 @@ public class Main {
         
 
         if (!Operation.equals("sin") && !Operation.equals("cos") && !Operation.equals("tan")) {
-        	System.out.println("How many numbers do you want to " + operatorName + ": "); 
+        	System.out.println("How many numbers do you want to " + operatorName + "?"); 
         	numOfNumbers = scnr.nextInt();
-        	System.out.println("Enter " + numOfNumbers + " numbers: ");
+        	System.out.println("Enter " + numOfNumbers + " numbers");
         	
         	if (Operation.equals("+")) {
         		for (int i = 0; i < numOfNumbers; ++i) {
@@ -157,7 +159,7 @@ public class Main {
         }
         
         System.out.println("Result: " + finalResult);
-        System.out.println("Start over? Y/N");
+        System.out.println("Do you want to start over? (Y/N)");
         startOver = scnr.next();
         if ((startOver.equals("N")  || (startOver.equals("n")))) {
         	System.out.print("Goodbye");
