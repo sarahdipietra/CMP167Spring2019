@@ -1,0 +1,106 @@
+/*
+ * File: Area.java
+ * Author:Sarah DiPietra
+ * Created 3.12-14.2019
+ * Description: Program will calculate the area of a rectangle, where the length and width are given by the user, the area of a circle, where the radius is given by the user, and the area of a triangle, where the base and height are given by the user. . 
+ */
+import java.util.Scanner; 
+
+public class Area {	
+	static Scanner scnr = new Scanner(System.in);
+	
+	/*
+	 * For: Area of a rectangle.
+	 * Input: getRectangleArea
+	 * Parameters: int Width and int Length
+	 * Calculates: Rectangle Area
+	 */
+	public static int getRectangleArea(int Width, int Length) {
+		return Width * Length;
+	}
+	
+	/* 
+	 * For: rectangleArea
+	 * Input: Width and Length
+	 * Process: Area = Width * Length
+	 * Output: Area
+	 */
+	public static void rectangleArea() {
+	
+		
+		System.out.println("Enter the width: ");
+		double sideWidth = scnr.nextDouble();
+		System.out.println("Enter the length: ");
+		double sideLength = scnr.nextDouble();
+		
+		double rectangleArea = sideLength * sideWidth;
+		System.out.println("The area is: " + rectangleArea);
+	}
+	
+	/*
+	 * For: Area of a circle.
+	 * Input: getCircleArea
+	 * Parameters: int Radius and Math.PI
+	 * Calculates: Circle Area
+	 */
+	public static double getCircleArea(double Radius) {
+		return Math.pow(Radius, 2.0) * Math.PI;
+	}
+	
+	/* 
+	 * For: circleArea
+	 * Input: Radius
+	 * Process: Area = Radius * Radius * PI
+	 * Output: Area
+	 */
+	public static void circleArea() {
+			
+		System.out.println("Enter the radius: ");
+		double circleRadius = scnr.nextDouble();
+
+		double circleArea = Math.PI * Math.pow(circleRadius, 2.0);
+		System.out.println("The area is: " + circleArea);
+		}
+		
+	
+	/*
+	 * For: Area of a triangle.
+	 * Input: getTriangleArea
+	 * Parameters: int Base and int height
+	 * Calculates: Triangle Area
+	 */
+	public static int getTriangleArea(int Base, int Height) {
+		return (Base * Height) /2;
+	}
+	
+	/* 
+	 * For: triangleArea
+	 * Input: Base and Height
+	 * Process: Area = Base * Height * 1/2
+	 * Output: Area
+	 */
+	public static void triangleArea() {
+				
+		System.out.println("Enter the base length: ");
+		double lengthBase = scnr.nextDouble();
+		System.out.println("Enter the height length: ");
+		double lengthHeight = scnr.nextDouble();
+
+		double triangleArea = (lengthHeight * lengthBase) / 2.0;
+		System.out.println("The area is: " + triangleArea);
+		}
+			
+	public static void main(String[] args) {
+		rectangleArea();
+		circleArea(); 
+		triangleArea();
+		System.out.println("Enter width and length: ");
+		int Width = scnr.nextInt();
+		int Length = scnr.nextInt();
+		int rectangleArea = getRectangleArea(Width, Length);
+		System.out.println("Area: " + rectangleArea);
+		}
+		
+	}
+
+
