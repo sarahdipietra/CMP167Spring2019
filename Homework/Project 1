@@ -1,6 +1,167 @@
-import java.util.Scanner; 
+import java.util.Scanner;
+import java.lang.Math;
 
-public class Calculator {
-	public static void main(String[] args) {
-		Scanner scnr = new Scanner(System.in);
+public class Main {
+	public static void main (String [] args) {
+        	@SuppressWarnings("resource")
+    		Scanner scnr = new Scanner(System.in);
 		
+        int numOfNumbers;
+        double numValues;
+        double numSum = 1;
+        double numDifference = 0;
+        double numProduct = 1;
+        double numQuotient = 0;
+        double numSine;
+        double numCosine;
+        double numTangent;
+        double finalResult = 0;
+        String startOver = "Y";
+        String calculatorMode;
+        String Operation = "+";
+        
+        while (startOver.equals("Y")) {
+        	
+        System.out.println("Enter the calculator mode: Standard/Scientific?");
+        calculatorMode = scnr.next();
+        
+        if (calculatorMode.equals("Standard") || (calculatorMode.equals("standard")) ) { 
+        	System.out.println("Enter '+' for addition, '-' for subtractions, '*' for multiplication, '/' for division, 'sin' for sin x, 'cos' for cos x, 'tan' for tan x:");
+        	Operation = scnr.next();
+        		if (!Operation.equals("+") && !Operation.equals("-") && !Operation.equals("*") && !Operation.equals("/")) {
+        			System.out.println("Invalid operation entered");
+        			System.out.println("Enter '+' for addition, '-' for subtractions, '*' for multiplication, '/' for division, 'sin' for sin x, 'cos' for cos x, 'tan' for tan x:");
+        			Operation = scnr.next();
+        			continue;
+        		}
+        }
+        
+        if (calculatorMode.equals("Scientific") || (calculatorMode.equals("scientific")) ) { 
+        	System.out.println("Enter '+' for addition, '-' for subtractions, '*' for multiplication, '/' for division, 'sin' for sin x, 'cos' for cos x, 'tan' for tan x:");
+        	Operation = scnr.next();
+        		if (Operation.equals("+") && Operation.equals("-") && Operation.equals("*") && Operation.equals("/")) {
+        			System.out.println("Invalid operation entered");
+        			System.out.println("Enter '+' for addition, '-' for subtractions, '*' for multiplication, '/' for division, 'sin' for sin x, 'cos' for cos x, 'tan' for tan x:");
+        			Operation = scnr.next();
+        			continue;
+        		}
+        }
+        
+        String operatorName = "add";
+        switch (Operation) {
+        	case "+":
+        		operatorName = "add";
+        		break;
+        	case "-":
+        		operatorName = "subtract";
+        		break;
+        	case "*":
+        		operatorName = "multiply";
+        		break;
+        	case "/":
+        		operatorName = "divide";
+        		break;
+        	case "sin":
+        		operatorName = "sine";
+        		break;
+        	case "cos":
+        		operatorName = "cosine";
+        		break;
+        	case "tan":
+        		operatorName = "tangent";
+        		break;
+        }
+        
+
+        if (!Operation.equals("sin") && !Operation.equals("cos") && !Operation.equals("tan")) {
+        	System.out.println("How many numbers do you want to " + operatorName + ": "); 
+        	numOfNumbers = scnr.nextInt();
+        	System.out.println("Enter " + numOfNumbers + " numbers: ");
+        	
+        	if (Operation.equals("+")) {
+        		for (int i = 0; i < numOfNumbers; ++i) {
+        			numValues = scnr.nextDouble();
+        			numSum = numSum+ numValues;
+        			finalResult = numSum;
+        		}
+        	}
+        	
+        	if (Operation.equals("-")) {
+        		if (numOfNumbers == 2) {
+        			 double numOne = scnr.nextDouble();
+        		     double numTwo = scnr.nextDouble();
+        			numDifference = numOne - numTwo;
+        			finalResult = numDifference;
+        		} 
+        		else if (numOfNumbers != 2) {
+        			 double numOne = scnr.nextDouble();
+        		     double numTwo = scnr.nextDouble();
+        			numDifference = numOne - numTwo;
+        			for (int i = 1; i <= (numOfNumbers - 3); ++i) {
+        				numValues = scnr.nextDouble();
+        				numDifference =- numValues;
+        				finalResult = numDifference;
+        			}
+        		}
+        	}
+        	
+        	if (Operation.equals("*")) {
+        		for (int i = 0; i < numOfNumbers; ++i) {
+        			numValues = scnr.nextDouble();
+        			numProduct = numProduct * numValues;
+        			finalResult = numProduct;
+        		}
+        	}
+        	
+        	if (Operation.equals("/")) {
+        		if (numOfNumbers == 2) {
+        			 double numOne = scnr.nextDouble();
+        		     double numTwo = scnr.nextDouble();
+        			numQuotient = numOne / numTwo;
+        			finalResult = numQuotient;
+        		} 
+        		else if (numOfNumbers != 2) {
+        			 double numOne = scnr.nextDouble();
+        		     double numTwo = scnr.nextDouble();
+        			numQuotient = numOne / numTwo;
+        			for (int i = 1; i <= (numOfNumbers - 2); ++i) {
+        				numValues = scnr.nextDouble();
+        				numQuotient = numQuotient / numValues;
+        				finalResult = numQuotient;
+        			}
+        		}
+        	}
+        }
+        	
+        if (Operation.equals("sin") || Operation.equals("cos") || Operation.equals("tan")) {
+        	System.out.println("Enter number in radians to find " + operatorName + ":");
+     
+        	if (Operation.equals("sin")) {
+        		numValues = scnr.nextDouble();
+        		numSine = Math.sin(numValues);
+        		finalResult = numSine;
+        	}
+        	
+        	if (Operation.equals("cos")) {
+        		numValues = scnr.nextDouble();
+        		numCosine = Math.cos(numValues);
+        		finalResult = numCosine;
+        	}
+        	
+        	if (Operation.equals("tan")) {
+        		numValues = scnr.nextDouble();
+        		numTangent = Math.tan(numValues);
+        		finalResult = numTangent;
+        	}
+        }
+        
+        System.out.println("Result: " + finalResult);
+        System.out.println("Start over? Y/N");
+        startOver = scnr.next();
+        if (startOver.equals("N")) {
+        	System.out.print("Goodbye");
+        }
+        
+        }
+	}
+}
