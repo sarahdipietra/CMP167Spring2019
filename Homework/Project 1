@@ -8,7 +8,7 @@ public class Main {
 		
         int numOfNumbers;
         double numValues;
-        double numSum = 1;
+        double numSum = 0;
         double numDifference = 0;
         double numProduct = 1;
         double numQuotient = 0;
@@ -79,9 +79,9 @@ public class Main {
         	System.out.println("Enter " + numOfNumbers + " numbers: ");
         	
         	if (Operation.equals("+")) {
-        		for (int i = 0; i < numOfNumbers; ++i) {
+        		for (int i = 1; i <= numOfNumbers; i++) {
         			numValues = scnr.nextDouble();
-        			numSum = numSum+ numValues;
+        			numSum = numSum + i;
         			finalResult = numSum;
         		}
         	}
@@ -106,9 +106,9 @@ public class Main {
         	}
         	
         	if (Operation.equals("*")) {
-        		for (int i = 0; i < numOfNumbers; ++i) {
+        		for (int i = 1; i <= numOfNumbers; i++) {
         			numValues = scnr.nextDouble();
-        			numProduct = numProduct * numValues;
+        			numProduct = numProduct * i;
         			finalResult = numProduct;
         		}
         	}
@@ -165,3 +165,4 @@ public class Main {
         }
 	}
 }
+
