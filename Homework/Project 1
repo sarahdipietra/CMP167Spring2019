@@ -20,13 +20,13 @@ public class Main {
         String calculatorMode;
         String Operation = "+";
         
-        while (startOver.equals("Y")) {
+        while ((startOver.equals("Y") || (startOver.equals("y")))) {
         	
         System.out.println("Enter the calculator mode: Standard/Scientific?");
         calculatorMode = scnr.next();
         
-        if (calculatorMode.equals("Standard") || (calculatorMode.equals("standard")) ) { 
-        	System.out.println("Enter '+' for addition, '-' for subtractions, '*' for multiplication, '/' for division, 'sin' for sin x, 'cos' for cos x, 'tan' for tan x:");
+        if (calculatorMode.equalsIgnoreCase("Standard")|| (calculatorMode.equals("standard"))) { 
+        	System.out.println("Enter '+' for addition, '-' for subtractions, '*' for multiplication, '/' for division:");
         	Operation = scnr.next();
         		if (!Operation.equals("+") && !Operation.equals("-") && !Operation.equals("*") && !Operation.equals("/")) {
         			System.out.println("Invalid operation entered");
@@ -36,7 +36,7 @@ public class Main {
         		}
         }
         
-        if (calculatorMode.equals("Scientific") || (calculatorMode.equals("scientific")) ) { 
+        if (calculatorMode.equals("Scientific") || (calculatorMode.equals("scientific"))) { 
         	System.out.println("Enter '+' for addition, '-' for subtractions, '*' for multiplication, '/' for division, 'sin' for sin x, 'cos' for cos x, 'tan' for tan x:");
         	Operation = scnr.next();
         		if (Operation.equals("+") && Operation.equals("-") && Operation.equals("*") && Operation.equals("/")) {
@@ -79,9 +79,9 @@ public class Main {
         	System.out.println("Enter " + numOfNumbers + " numbers: ");
         	
         	if (Operation.equals("+")) {
-        		for (int i = 1; i <= numOfNumbers; i++) {
+        		for (int i = 0; i < numOfNumbers; ++i) {
         			numValues = scnr.nextDouble();
-        			numSum = numSum + i;
+        			numSum = numSum + numValues;
         			finalResult = numSum;
         		}
         	}
@@ -106,9 +106,9 @@ public class Main {
         	}
         	
         	if (Operation.equals("*")) {
-        		for (int i = 1; i <= numOfNumbers; i++) {
+        		for (int i = 1; i <= numOfNumbers; ++i) {
         			numValues = scnr.nextDouble();
-        			numProduct = numProduct * i;
+        			numProduct = numProduct * numValues;
         			finalResult = numProduct;
         		}
         	}
@@ -158,7 +158,7 @@ public class Main {
         System.out.println("Result: " + finalResult);
         System.out.println("Start over? Y/N");
         startOver = scnr.next();
-        if (startOver.equals("N")) {
+        if ((startOver.equals("N")  || (startOver.equals("n")))) {
         	System.out.print("Goodbye");
         }
         
