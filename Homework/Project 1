@@ -5,7 +5,10 @@ public class Main {
 	public static void main (String [] args) {
         	@SuppressWarnings("resource")
     		Scanner scnr = new Scanner(System.in);
-		
+        	
+       String startOver = "Y";
+       while ((startOver.equals("Y") || (startOver.equals("y")))) {
+    	   
         int numOfNumbers;
         double numValues;
         double numSum = 0;
@@ -16,11 +19,9 @@ public class Main {
         double numCosine;
         double numTangent;
         double finalResult = 0;
-        String startOver = "Y";
         String calculatorMode;
         String Operation = "+";
         
-        while ((startOver.equals("Y") || (startOver.equals("y")))) {
         	
         System.out.println("Enter the calculator mode: Standard/Scientific?");
         calculatorMode = scnr.next();
