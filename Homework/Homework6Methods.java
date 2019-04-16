@@ -18,17 +18,23 @@ public class Homework6Methods {
 	}
 
 	public static int getMedianOf3Ints(int A, int B, int C) {
-		if (A >= B && A <= C) {
+		if ((A > B &&  A < C) || (A > C && A < B)) {
 			return A;
 		}
-		else if (B >= C && B <= A) {
+		else if ((B > A && B < C) || (B < A && B > C)) {
 			return B;
 		}
-		else if (C >= A && C <= B) {
-			return C;
+		else if (B == A) {
+			return B;
+		}
+		else if (B == C) {
+			return B;
+		}
+		else if (A == C) {
+			return A;
 		}
 		else {
-			return A;
+			return C; 
 		}
 	}
 
@@ -37,36 +43,36 @@ public class Homework6Methods {
 		System.out.println("The min is " + minValue);
 	}
 
-	public static int getProdOfAllPositiveInts(int n, int prodValue){
+	public static int getProdOfAllPositiveInts(int n) {
 		if (n <= 0) {
 			return 0;
 		}
-		else {
-			for (int i = 1; i <= n; i++) {
-				prodValue = prodValue * i;
-			}
+		int product = 1;
+		for (int i = 1; i <= n; i++) {
+			product = product * i;
 		}
-		return prodValue; 
+		return product; 
 	}
 
-	public static int getProdOfAllNegativeInts(int n, int prodValue){
+	public static int getProdOfAllNegativeInts(int n){
+		int product = 1;
 		if (n >= 0) {
 			return 0;
 		}
 		else {
-			for (int i = 1; i >= n; i--) {
-				prodValue = prodValue * i;
+			for (int i = n; i <= -1; ++i) {
+				product = product * i;
 			}
 		}
-		return prodValue; 
+		return product; 
 	}
 
 	public static boolean isProdOfAllNegativeIntsNegative(int n) {
-		int prodValue = 1;
+		int product = 1;
 		for (int i = -1; i >= n; --i) {
-			prodValue = prodValue * i;
+			product = product * i;
 		}
-		if (prodValue < 0) {
+		if (product < 0) {
 			return true;
 		}
 		else {
@@ -96,7 +102,7 @@ public class Homework6Methods {
 
 	public static String getStringReversed(String s) {
 		String sReversed = "";
-		for (int i = s.length(); i >= 0; i++) {
+		for (int i = s.length() - 1; i >= 0; i--) {
 			sReversed = sReversed + (s.charAt(i));
 		}
 		return sReversed;
@@ -108,7 +114,7 @@ public class Homework6Methods {
 		}
 		else {
 			s = s.substring(0, 1).toUpperCase() + s.substring(1);
-			for (int i = 0; i < s.length(); i++) {
+			for (int i = 1; i < s.length(); i++) {
 				if (Character.isWhitespace(s.charAt(i - 1))) {
 					s = s.substring(0, i) + s.substring(i, i + 1).toUpperCase() + s.substring(i + 1);
 				}
