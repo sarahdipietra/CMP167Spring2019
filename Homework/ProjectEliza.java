@@ -11,9 +11,9 @@ class PromptBank {
 	}
 
 	public void populateStatementsArray(String thingOne, String thingTwo){
-		questions[0] = "Let's discuss " + thingOne + " and " + thingTwo;
-		questions[1] = thingOne + " and " + thingTwo + " seem to be troubling you. Please tell me more.";
-		questions[2] = "We should talk through why " + thingOne + " and " + thingTwo + " might be on your mind.";
+		statements[0] = "Let's discuss " + thingOne + " and " + thingTwo + ".";
+		statements[1] = thingOne + " and " + thingTwo + " seem to be troubling you. Please tell me more.";
+		statements[2] = "We should talk through why " + thingOne + " and " + thingTwo + " might be on your mind.";
 	}
 
 	public void populateQuestionsArray(String thingOne, String thingTwo){
@@ -40,6 +40,7 @@ class ProjectEliza  {
 
 	static String wordOne;
 	static String wordTwo;
+	static boolean runSession = true;
 	static PromptBank Eliza = new PromptBank(); 
 
 	static public void sessionGreeting() {
@@ -49,7 +50,6 @@ class ProjectEliza  {
 	}
 
 	public static void elizaStatements(String userResponse) {
-		wordTwo = "";
 		String[] array = userResponse.split(" ");
 		wordOne = array[0];
 		wordTwo = array[array.length - 1];
@@ -74,24 +74,45 @@ class ProjectEliza  {
 
 	public static void userDialogue() {
 		String userResponse = "";
-		if (userResponse.contentEquals("Exit") || userResponse.contentEquals("exit") || userResponse.contentEquals("EXIT") ) {
-			exitSession();
-		}
-		else {
+		while (runSession = true) {
 			userResponse = scnr.nextLine();
-			if (userResponse.endsWith("?")) {
-				elizaQuestions(userResponse);
-			}
-			else if (userResponse.endsWith("!")) {
-				System.out.print("WOW! Dramatic!"); 
-				elizaStatements(userResponse);
-			}
-			else if (userResponse.equalsIgnoreCase("EXIT")) {
+			if (userResponse.equalsIgnoreCase("Exit")) {
 				exitSession();
 			}
 			else {
-				elizaStatements(userResponse); 
+				if (userResponse.endsWith("?")) {
+					elizaQuestions(userResponse);
+				}
+				else if (userResponse.endsWith("!")) {
+					System.out.print("WOW! Dramatic!"); 
+					elizaStatements(userResponse);
+				}
+				else if (userResponse.equalsIgnoreCase("EXIT")) {
+					exitSession();
+				}
+				else {
+					otherStatement(userResponse); 
+				}
 			}
+		}
+	}
+	public static void exclamationStatments(String userIn) {
+		String[] array; 
+		array = userIn.split(" ");
+		wordOne = array[0];
+		wordTwo = array[array.length-1];
+		if (wordTwo.endsWith(".") || wordTwo.endsWith("!"))
+			wordTwo = wordTwo.substring(0, wordTwo.length()-1);
+		System.out.print("WOW! Dramatic! ");
+		Eliza.populateStatementsArray(wordOne, wordTwo);
+	}
+	
+	public static void otherStatement(String userResponse) {
+		if (userResponse.contentEquals("") || userResponse.contentEquals(" ")) {
+			System.out.print("");
+		}
+		else {
+			elizaStatements(userResponse);
 		}
 	}
 
@@ -105,5 +126,10 @@ class ProjectEliza  {
 		if (runAgain.equals("yes") || runAgain.equals("YES") || runAgain.equals("Yes")) {
 			sessionGreeting();
 		}
+	}
+
+	public static void main(String[] args) {
+		sessionGreeting();
+		userDialogue();
 	}
 }
